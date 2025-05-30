@@ -1,179 +1,110 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>皮卡丘IBM顧問一日生活：ITA LEADER的電力工作術</title>
-    <!-- 引入 Bootstrap 5.3.3 CDN for styling -->
+    <title>皮卡丘的IBM顧問日常</title>
+    <!-- 引入 Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Google Fonts - Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: '微軟正黑體', 'Microsoft JhengHei', sans-serif;
-            background-color: #f0f8ff; /* 淡藍色背景 */
-            color: #333;
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
             line-height: 1.8;
-            margin: 0;
-            padding: 0;
         }
         .container {
             max-width: 960px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            animation: fadeIn 1s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        h1, h2 {
-            color: #ffcc00; /* 皮卡丘黃 */
-            text-align: center;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 2.8rem;
-            letter-spacing: 2px;
-            border-bottom: 3px solid #ffd700;
-            padding-bottom: 15px;
-        }
-        h2 {
-            font-size: 2rem;
-            color: #4a90e2; /* IBM 藍 */
-            border-left: 5px solid #4a90e2;
-            padding-left: 15px;
-            margin-top: 40px;
-            margin-bottom: 25px;
-        }
-        .section-content {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            gap: 25px;
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-        }
-        .section-content:nth-child(odd) {
-            flex-direction: row-reverse; /* Alternate image and text position */
-        }
-        .section-image {
-            flex: 0 0 300px; /* Fixed width for image */
-            min-width: 250px; /* Ensure image isn't too small */
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: #ffffff;
+            padding: 40px;
             border-radius: 10px;
-            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
         }
-        .section-image:hover {
-            transform: scale(1.03);
+        h1, h2, h3 {
+            color: #007bff; /* IBM blue */
+            font-weight: 700;
+            margin-bottom: 20px;
         }
-        .section-image img {
+        .header-image {
             width: 100%;
-            height: auto;
-            display: block;
-        }
-        .section-text {
-            flex: 1;
-            padding: 15px;
-            background-color: #e6f7ff; /* 淺藍色背景 */
+            height: 250px;
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            filter: grayscale(20%); /* A subtle aesthetic touch */
         }
-        .section-text p {
-            margin-bottom: 10px;
+        .section-title {
+            background-color: #e9ecef;
+            padding: 10px 15px;
+            border-left: 5px solid #007bff;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .card-body {
+            padding: 25px;
         }
         .footer {
             text-align: center;
             margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #888;
+            color: #6c757d;
             font-size: 0.9rem;
         }
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px auto;
-                padding: 15px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.6rem;
-            }
-            .section-content {
-                flex-direction: column !important; /* Stack vertically on small screens */
-                align-items: center;
-            }
-            .section-image {
-                flex: none;
-                width: 80%; /* Adjust image width for small screens */
-            }
-            .section-text {
-                padding: 10px;
-            }
+        .highlight {
+            color: #dc3545; /* A bit of contrast */
+            font-weight: 700;
+        }
+        .img-fluid-small {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>皮卡丘IBM顧問一日生活：ITA LEADER的電力工作術</h1>
-        <p class="text-center lead">
-            身為一位專精於數位轉型與顧問服務的IBM ITA LEADER，皮卡丘如何運用他獨特的「電力」與敏捷思維，
-            在繁忙的顧問日程中，精準地完成每一項任務？讓我們一探究竟！
-        </p>
+        <h1 class="text-center mb-4">皮卡丘：IBM顧問的電力日常</h1>
+        <p class="lead text-center">即使是充滿電力的寶可夢，也能在企業顧問的世界中發光發熱！讓我們一探皮卡丘如何運用其獨特的「電力」與「速度」，成為IBM顧問界的傳奇。</p>
 
-        <h2>⚡ 上午：需求訪談 - 電力十足的「聆聽」與「洞察」</h2>
-        <div class="section-content">
-            <div class="section-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pikachu_original.svg/1200px-Pikachu_original.svg.png" alt="皮卡丘與客戶訪談">
-            </div>
-            <div class="section-text">
-                <p><strong>早上 9:00 - 12:00</strong>，皮卡丘身穿訂製的IBM藍色小西裝，端坐在客戶會議室。他的耳朵敏銳地捕捉著客戶的每一個字眼，不時發出「Pika Pika！」的聲音，那並非無意義的叫聲，而是經過深度思考後，針對客戶需求發出的「啊哈！」時刻。</p>
-                <p>他會運用「電光石火」般的速度在心智圖上繪製需求，當客戶對某個痛點描述不清時，他會釋放微弱的「十萬伏特」能量，輕輕觸碰投影螢幕，讓模糊的概念瞬間清晰，並引導客戶說出核心痛點。他的提問總是直指問題核心，確保所有需求都被精準捕獲。</p>
-                <p>在會議結束前，他會用一句響亮的「Pikachu！」總結今日訪談重點，並透過眼神交流，確保客戶對本次溝通成果感到「電力滿滿」。</p>
-            </div>
-        </div>
+        <!-- CDN Image for header -->
+        <img src="https://images.unsplash.com/photo-1542478499-e659b867c461?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid header-image" alt="A modern office space representing Pikachu's professional environment">
 
-        <h2>📝 下午：文件撰寫 - 高效而精準的「知識整理」</h2>
-        <div class="section-content">
-            <div class="section-image">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a6/Pikachu_artwork_for_Pokémon_Red_and_Blue.png" alt="皮卡丘在電腦前工作">
-            </div>
-            <div class="section-text">
-                <p><strong>下午 1:30 - 5:30</strong>，午餐後，皮卡丘會回到他的「電氣辦公室」。他不需要咖啡提神，因為他天生就是個能量包。他會將上午收集到的龐大資訊，利用「打雷」般的專注力，轉化為條理清晰、邏輯嚴謹的顧問文件。</p>
-                <p>在撰寫解決方案架構時，他會運用「電球」般的視覺化能力，將複雜的系統流程圖繪製得一目瞭然。對於技術規格，他會像發射「伏特攻擊」般精確，確保每一個參數都毫無差池。即使是密密麻麻的文字，在他的整理下，也能散發出簡潔明亮的「電氣」光芒。</p>
-                <p>他深知文件的美觀與易讀性同樣重要，所以即使是內部文件，也會力求排版整齊，圖文並茂，讓閱讀者「電力充沛」地吸收資訊。</p>
-            </div>
-        </div>
+        <div class="section-title">⚡ 早上：需求訪談的「閃電」效率</div>
+        <p>清晨，當第一縷陽光灑落，身著迷你版IBM西裝的皮卡丘已坐在會議室裡，一邊輕輕啃著能量方塊，一邊與客戶進行需求訪談。他不需要冗長的開場白，憑藉其天生的敏銳與對細節的捕捉力，快速「Pika-Pika！」地提出精準問題。</p>
+        <p>「皮卡丘的『電光石火』不只用於戰鬥，更是他提煉核心需求的超能力。」他的客戶常開玩笑說。他能迅速理解客戶的痛點，並透過簡潔的溝通，將複雜的業務流程轉化為清晰的需求描述。手中的迷你平板電腦上，關鍵字與流程圖在他的「十萬伏特」思考下快速成形。</p>
+        <img src="https://images.unsplash.com/photo-1596526131006-259c869966b0?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid-small" alt="A person taking notes in a meeting, symbolizing Pikachu's requirements gathering">
 
-        <h2>📈 晚上：進度更新 - 簡潔有力的「電力彙報」</h2>
-        <div class="section-content">
-            <div class="section-image">
-                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="皮卡丘開會">
-            </div>
-            <div class="section-text">
-                <p><strong>晚上 7:00 - 8:00</strong>，當其他顧問可能還在與PPT搏鬥時，皮卡丘已經準備好向專案經理（PM）進行進度彙報。他會將一天的成果濃縮成「電擊」般簡潔有力的幾頁投影片。</p>
-                <p>他不會使用冗長的描述，而是直接點出重點、風險與下一步計畫。當PM提問時，皮卡丘的「高速移動」思維能立即給出精準答覆，有時甚至伴隨著微弱的「電磁波」信號，讓會議室的氛圍充滿高效與積極。</p>
-                <p>他堅信，優秀的進度更新，就像一場完美的「閃電」秀，快速、有力，且讓人印象深刻。PM總能從他的彙報中，感受到專案的「電力」與穩定進展，安心地結束一天的繁忙工作。</p>
-            </div>
-        </div>
+        <div class="section-title">📝 下午：文件的「鐵尾」精修</div>
+        <p>午飯過後，皮卡丘會回到自己的「充電站」—— 他的辦公桌。不同於其他顧問，他撰寫文件時的專注度極高，彷彿進入了「冥想」狀態。下午是文件產出的黃金時段，他將上午收集到的碎片資訊，透過嚴謹的邏輯思維，組織成結構清晰、內容詳盡的解決方案設計文件或使用者故事。</p>
+        <p>「每次看到皮卡丘的文件，都像看到他揮舞『鐵尾』般，每一擊都精準有力，沒有一絲贅字。」同事們對他的文件質量讚不絕口。他善用圖表與流程圖，將複雜的技術概念和業務邏輯以最直觀的方式呈現，確保每一個字、每一張圖都能精準傳達意圖。</p>
+        <img src="https://images.unsplash.com/photo-1549646545-cf80210e740d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid-small" alt="Hands typing on a laptop, representing documentation work">
 
-        <p class="text-center mt-5">
-            這就是IBM ITA LEADER 皮卡丘的一日電力工作術！他不僅是技術顧問，更是將智慧與能量完美結合的效率典範。
-        </p>
+        <div class="section-title">📈 晚上：PM更新的「高速移動」報告</div>
+        <p>夜幕降臨，但皮卡丘的電力依舊充沛。晚上是他與專案經理(PM)更新進度的時候。他深知PM時間寶貴，因此他的報告總是精簡而富有洞察力。</p>
+        <p>他會準備一份簡潔的「電力儀表板」，上面清晰標示著任務進度、潛在風險與下一個步驟。當PM（或許是那位總是需要小憩的卡比獸PM）開始打盹時，皮卡丘只需發出一個響亮的「Pika！」聲，就能讓他迅速清醒，並專注於那份高效的報告。他的「高速移動」體現在他對問題的快速分析與提出解決方案的能力，讓PM能迅速掌握專案脈動。</p>
+        <img src="https://images.unsplash.com/photo-1552588147-380d60c41031?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid-small" alt="A person presenting data on a screen, symbolizing progress updates">
+
+        <div class="section-title">💡 半夜：技能分享的「伏特攻擊」</div>
+        <p>當城市進入夢鄉，皮卡丘的學習與分享熱情才剛開始燃燒。半夜，他會打開視訊會議，與全球的IBM顧問同事們分享最新的技術趨勢、解決方案的最佳實踐，甚至是他在需求訪談中的獨門心法。</p>
+        <p>這不是普通的分享會，而是充滿「伏特攻擊」能量的知識交流。皮卡丘會展示他如何利用AI工具加速文件撰寫，或是如何運用雲端技術優化客戶架構。他堅信，只有不斷分享與學習，才能讓整個團隊的「電力」持續增強。他的分享會總是座無虛席，因為每個人都知道，皮卡丘的「伏特攻擊」總能帶來驚人的洞察與靈感。</p>
+        <img src="https://images.unsplash.com/photo-1504384308090-c899015c7e90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid-small" alt="People collaborating in an online meeting, representing skill sharing">
+
+        <p class="text-center mt-5">從需求到分享，皮卡丘完美詮釋了專業IBM顧問的日常。他證明了，無論是何種形態，只要擁有熱情、智慧與不斷進取的精神，都能在各自的領域中，綻放出最耀眼的光芒！</p>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2024 皮卡丘顧問服務有限公司。版權所有，電力滿載。</p>
-    </footer>
-
-    <!-- 引入 Bootstrap 5.3.3 JavaScript CDN (Optional, for interactive components if any) -->
+    <!-- 引入 Bootstrap 5 JS (Popper.js bundled) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 引入 jQuery CDN (Optional, if other JS functions are needed) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 </html>
