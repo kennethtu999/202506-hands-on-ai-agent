@@ -1,125 +1,167 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台股最近一個交易日收盤行情</title>
-    <!-- 引入 Bootstrap 5 CSS CDN -->
+    <title>皮卡丘的IBM顧問日常</title>
+    <!-- CDN CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: "Microsoft JhengHei", sans-serif;
+            font-family: 'Noto Sans TC', sans-serif; /* A nice Traditional Chinese font */
             background-color: #f8f9fa;
+            color: #343a40;
         }
-        .header {
-            background-color: #007bff;
+        .container {
+            max-width: 900px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.05);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        .header-section {
+            background-color: #053D5F; /* IBM Blue */
             color: white;
-            padding: 20px 0;
-            margin-bottom: 30px;
+            padding: 30px;
             text-align: center;
         }
+        .header-section h1 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .header-section p {
+            font-size: 1.1em;
+        }
+        .content-section {
+            padding: 40px;
+        }
         .card {
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,.03);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         .card-header {
             background-color: #e9ecef;
-            font-weight: bold;
+            color: #495057;
+            font-weight: 600;
+            font-size: 1.2em;
         }
-        .summary-section {
-            background-color: #e9f7ef;
-            padding: 20px;
-            border-left: 5px solid #28a745;
-            margin-top: 30px;
-        }
-        .stock-image {
-            max-width: 100%;
+        .pikachu-img {
+            max-width: 150px;
             height: auto;
-            display: block;
-            margin: 0 auto 30px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-top: -80px; /* Overlap with header */
+            position: relative;
+            z-index: 10;
+        }
+        .section-icon {
+            font-size: 2em;
+            color: #053D5F; /* IBM Blue */
+            margin-right: 15px;
+        }
+        .footer-section {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #6c757d;
+            background-color: #f1f3f5;
+            border-top: 1px solid #dee2e6;
         }
     </style>
+    <!-- Google Fonts for Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <h1>台股最近一個交易日收盤行情</h1>
-    </div>
-
     <div class="container">
-        <!-- Stock Market Image from CDN -->
-        <img src="https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="股市走勢圖" class="stock-image">
+        <div class="header-section">
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu" class="pikachu-img d-block mx-auto">
+            <h1 class="mt-3">當皮卡丘成為IBM顧問：高效一日</h1>
+            <p>皮卡丘，一位敏捷、精準且充滿活力的IBM資深顧問，分享他的典型工作日。</p>
+        </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        收盤行情
-                    </div>
-                    <div class="card-body">
-                        <p>台股最近一個交易日（2025年5月29日）收盤：</p>
-                        <ul>
-                            <li>終場下跌10點，以<strong>21,347點</strong>作收。</li>
-                            <li>成交量擴張至<strong>3,322億元</strong>，呈現價跌量增格局。</li>
-                            <li>受端午連假前賣壓及MSCI半年度調整效應影響，盤中爆量甩尾翻黑。</li>
-                        </ul>
+        <div class="content-section">
+            <div class="row g-4">
+                <!-- Morning Section -->
+                <div class="col-md-12">
+                    <div class="card h-100">
+                        <div class="card-header d-flex align-items-center">
+                            <i class="fas fa-sun section-icon"></i>
+                            <div>
+                                早上：敏捷需求訪談
+                                <div class="text-muted small">精準溝通，掌握核心</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>「皮卡！皮卡丘！」（翻譯：客戶您好！我是您的顧問皮卡丘。今天我們來深度探討您的業務挑戰和期望目標。）</p>
+                            <ul>
+                                <li><strong>⚡ 閃電提問：</strong> 皮卡丘會用一連串尖銳但友善的問題，快速釐清專案範圍、關鍵痛點和潛在風險。例如：「皮卡？」（對於這個需求，您最期待的成果是什麼？），「皮卡皮？」（我們有哪些既有資源可以利用？）。</li>
+                                <li><strong>💡 洞察力放電：</strong> 他不僅聽取需求，還會根據IBM的產業知識庫和過往經驗，即時提出初步見解和解決方案方向。</li>
+                                <li><strong>🤝 建立共識：</strong> 確保會議結束時，所有參與者都對需求有共同的理解，並同意下一步行動。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        類股表現
+
+                <!-- Afternoon Section -->
+                <div class="col-md-12 mt-4">
+                    <div class="card h-100">
+                        <div class="card-header d-flex align-items-center">
+                            <i class="fas fa-pencil-alt section-icon"></i>
+                            <div>
+                                下午：精確文件撰寫
+                                <div class="text-muted small">條理分明，清晰呈現</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>「皮卡丘！皮卡！」（翻譯：文件撰寫時間到！我會將所有討論內容系統化，確保每個人都能一目瞭然。）</p>
+                            <ul>
+                                <li><strong>📊 系統架構圖：</strong> 運用IBM專業繪圖工具，將複雜的系統流程和架構圖示化，讓技術與非技術人員都能輕鬆理解。</li>
+                                <li><strong>📝 需求規格書：</strong> 條列式列出所有功能與非功能性需求，搭配清晰的驗收標準。每項需求都附上「皮卡」評分（重要性評估）。</li>
+                                <li><strong>✍️ 會議紀要與行動項目：</strong> 迅速整理上午會議紀要，明確指出誰負責什麼，何時完成，並將其發送給所有相關方。</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul>
-                            <li><strong>電子股</strong>相對突出，但整體市場因賣壓影響震盪劇烈。</li>
-                            <li><strong>防疫族群</strong>出現漲勢回升，表現較為強勢。</li>
-                        </ul>
+                </div>
+
+                <!-- Evening Section -->
+                <div class="col-md-12 mt-4">
+                    <div class="card h-100">
+                        <div class="card-header d-flex align-items-center">
+                            <i class="fas fa-chart-line section-icon"></i>
+                            <div>
+                                晚上：進度更新與風險管理
+                                <div class="text-muted small">透明溝通，掌握全局</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>「皮卡皮！皮卡丘！」（翻譯：PM您好！這是今天的專案進度匯報，一切都在掌握中。）</p>
+                            <ul>
+                                <li><strong>📈 PM儀表板更新：</strong> 即時更新專案管理工具（如Jira, Asana, IBM PPM）中的任務狀態、時間線和里程碑。</li>
+                                <li><strong>🚨 風險預警：</strong> 如果發現潛在風險，會立即「電擊」PM，提出預防措施和應對計劃，絕不隱瞞問題。</li>
+                                <li><strong>🚀 展望未來：</strong> 簡要概述明日重點工作，確保PM對接下來的計畫有清晰的掌握。</li>
+                                <li><strong>😴 短暫休息：</strong> 結束一天高效工作後，皮卡丘會好好休息，準備迎接明天的挑戰，因為「充足電力」是高效工作的基礎！</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        熱門個股
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li><strong>永裕(1323)</strong>：將於6月5日除息，每股配發現金股利0.9元，預估參考價19.9元。</li>
-                            <li><strong>台積電ADR</strong>：站回所有均線，有利台積電後市表現，成為市場關注焦點之一。</li>
-                            <li><strong>輝達相關概念股</strong>：受輝達展望正向、美國四大雲端服務供應商資本支出強勁及沙烏地阿拉伯擬大舉投資AI等利多消息推動，相關科技類股人氣上升。</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        強勢漲停股
-                    </div>
-                    <div class="card-body">
-                        <p>目前資料未明確列出當天具體的強勢漲停個股名單，但從防疫族群和部分電子權值股的活躍度來看，這些板塊中可能存在漲停或接近漲停的股票。投資人可關注相關產業龍頭及政策扶持標的。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="summary-section">
-            <h4>總結與展望</h4>
-            <p>雖然台股當天因賣壓與調整因素小幅下挫，但外資在五月份累計大幅買超逾2,199億元，是近18個月最大規模，有助於後續市場反彈動能。</p>
-            <p>展望六月，在美國科技巨頭及AI投資熱潮帶動下，以及台積電等權值電子股基本面改善下，台股仍有機會挑戰年線並持續反彈。</p>
+        <div class="footer-section">
+            <p>&copy; 2024 皮卡丘顧問事務所。本頁面純屬娛樂性質，所有內容與IBM公司無關。</p>
+            <p>由前端工程師以美感為核心精心打造，善用CDN資源。</p>
         </div>
     </div>
 
-    <!-- 引入 Popper.js 和 Bootstrap 5 JS CDN (Popper.js 是 Bootstrap 的依賴) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-    <!-- 引入 jQuery CDN (非必要，但為展示CDN引用) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <!-- CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
