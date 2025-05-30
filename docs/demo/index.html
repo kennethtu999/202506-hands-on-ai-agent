@@ -3,133 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>皮卡丘的IBM顧問日常</title>
-    <!-- 引入 Bootstrap CSS CDN -->
+    <title>皮卡丘的IBM顧問日常：高效與閃電般的速度</title>
+    <!-- 引入 Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: '微軟正黑體', 'Microsoft JhengHei', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+            font-family: 'Noto Sans TC', sans-serif; /* 考慮繁體中文字體 */
+            background-color: #f8f9fa;
+            color: #343a40;
             line-height: 1.6;
         }
         .container {
             max-width: 960px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            background-color: #fff;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .header-section {
+        h1, h2 {
+            color: #007bff; /* IBM Blue */
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-        .header-section h1 {
-            color: #007bff;
+        .section-card {
+            background-color: #fefefe;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .section-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
             margin-bottom: 15px;
+        }
+        .card-title {
+            color: #28a745; /* Green for efficiency */
             font-weight: bold;
+            margin-bottom: 15px;
         }
-        .header-section img {
-            width: 150px;
-            height: auto;
-            border-radius: 50%;
-            border: 5px solid #ffcc00;
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
-            margin-bottom: 20px;
-        }
-        .time-slot {
-            margin-bottom: 40px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 30px;
-        }
-        .time-slot:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .time-slot h2 {
-            color: #28a745;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        .time-slot img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-        .description {
-            font-size: 1.1em;
-            color: #555;
-        }
-        .footer-section {
+        footer {
             text-align: center;
-            margin-top: 50px;
-            color: #777;
+            margin-top: 40px;
+            padding: 20px;
+            color: #6c757d;
             font-size: 0.9em;
+            border-top: 1px solid #e9ecef;
         }
     </style>
+    <!-- 引入 Noto Sans TC 字體 CDN (Google Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="header-section">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="皮卡丘頭像">
-            <h1>皮卡丘的IBM顧問日常</h1>
-            <p class="lead description">身為一位資深的IBM顧問，皮卡丘是如何在一天中，有效率地完成各項任務，並用其獨特的魅力為客戶帶來「十萬伏特」的解決方案！</p>
+        <h1>⚡️ 皮卡丘的IBM顧問日常 ⚡️</h1>
+        <p class="lead text-center">當皮卡丘化身為專業的IBM顧問，運用牠的閃電般的速度與精準，讓客戶與專案經理都驚嘆不已！</p>
+
+        <hr class="my-4">
+
+        <div class="section-card">
+            <h2 class="card-title">☀️ 早上：閃電般的需求訪談 ☀️</h2>
+            <img src="https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="早上會議圖片" class="img-fluid">
+            <p>皮卡丘總是以其招牌的「皮卡皮卡！」作為開場白，迅速活躍會議氣氛。牠利用敏銳的聽力與「電光一閃」般的洞察力，快速捕捉客戶的核心痛點與潛在需求。每一道問題都精準有力，如同「十萬伏特」般直擊要害，確保所有關鍵資訊都能在上午茶歇前完整收集，為下午的提案與文件打下堅實基礎。</p>
+            <p>牠不僅聆聽，更善於引導。透過簡單的肢體語言（例如，豎起耳朵表示專注）與電力符號的視覺化（想像小小的閃電圖案在白板上飛舞），讓複雜的需求變得清晰易懂。客戶總是驚訝於皮卡丘對細節的掌握，以及牠在最短時間內提供初步解決方案方向的能力。</p>
         </div>
 
-        <div class="time-slot">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2>早上：需求訪談與收集</h2>
-                    <p class="description">
-                        清晨，皮卡丘會先用「電光一閃」的效率抵達客戶現場，與利害關係人進行深入的需求訪談。他善於傾聽，即便客戶的需求像「打雷」般複雜，皮卡丘也能精準捕捉每個細節，將模糊的需求轉化為清晰的目標。他會透過眼神交流（和一點點十萬伏特），確保所有人都保持專注，共同釐清專案的脈絡。
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://images.unsplash.com/photo-1552581234-26390f592960?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="早上會議">
-                </div>
-            </div>
+        <div class="section-card">
+            <h2 class="card-title">📝 下午：精密的文件撰寫 📝</h2>
+            <img src="https://images.pexels.com/photos/3760070/pexels-photo-3760070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="下午撰寫文件圖片" class="img-fluid">
+            <p>午餐過後，皮卡丘會專注於文件撰寫。牠的鍵盤敲擊聲，如同「電擊」般富有節奏感，每一字每一句都經過精密計算。從需求規格書（SRS）到解決方案架構圖，皮卡丘都力求清晰、簡潔、無歧義。牠善用各種圖表與流程圖，將複雜的技術概念轉化為客戶與非技術人員都能理解的內容。</p>
+            <p>牠的「鐵尾」會不時輕敲桌面，確保思緒保持高度集中。所有文件都會在下午五點前完成初稿，並進行初步的自我審閱。皮卡丘堅信，一份好的文件能減少未來溝通成本，如同佈下電流網般，確保資訊傳遞的暢通無阻。</p>
         </div>
 
-        <div class="time-slot">
-            <div class="row align-items-center flex-md-row-reverse">
-                <div class="col-md-6">
-                    <h2>下午：解決方案與文件撰寫</h2>
-                    <p class="description">
-                        午餐過後，皮卡丘會回到辦公室，將早上收集到的需求資訊，結合IBM的專業知識，快速構思出最佳解決方案。他的「鐵尾」會高效地在鍵盤上敲打，將複雜的技術細節和業務流程，轉化為清晰易懂的需求文件、技術規格書和提案。每一個字都像「電擊」般精準有力，確保文件內容的專業性與實用性。
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://images.unsplash.com/photo-1549692520-acc6669e2fde?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="下午文件撰寫">
-                </div>
-            </div>
+        <div class="section-card">
+            <h2 class="card-title">🌙 晚上：高效進度匯報給PM 🌙</h2>
+            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="晚上更新進度圖片" class="img-fluid">
+            <p>夜幕降臨，皮卡丘會準時透過視訊會議或簡短的面對面交流，向專案經理（PM）更新當天進度。牠的匯報總是簡潔明瞭，用「伏特攻擊」般的效率，直截了當地指出已完成事項、遇到的挑戰（若有）以及下一步計畫。從不拖泥帶水，也不打馬虎眼。</p>
+            <p>牠會準備好精煉的報告，輔以關鍵數據與圖表，確保PM能在一分鐘內掌握專案核心狀態。如果遇到棘手問題，皮卡丘也會主動提出牠思考過的幾種解決方案建議，展現其不僅是執行者，更是問題解決者的能力。PM們總是對皮卡丘的專業和牠那句「皮卡，皮卡丘！」的結尾報告感到安心與滿意。</p>
         </div>
 
-        <div class="time-slot">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2>晚上：進度更新與專案管理</h2>
-                    <p class="description">
-                        夜幕降臨，皮卡丘會準時透過「電信」與專案經理（PM）進行每日的進度更新。他會詳細匯報當天的進展、遇到的挑戰以及預計的下一步計畫。他的簡報清晰明瞭，即便有突發狀況，也能像「伏特攻擊」一樣，迅速提出應對策略。確保專案在正確的軌道上，並讓PM對進度瞭若指掌。
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://images.unsplash.com/photo-1616400619175-5be4579c882a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="晚上進度更新">
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-section">
-            <p>&copy; 2024 皮卡丘顧問服務公司版權所有</p>
-            <p>本頁面僅為概念驗證（POC）用途，圖片來自Unsplash，皮卡丘圖示來自PokeAPI。</p>
-        </div>
+        <p class="text-center mt-5">🌟 皮卡丘：不僅是顧問，更是為您帶來「光明」與「效率」的IBM夥伴！ 🌟</p>
     </div>
 
-    <!-- 引入 Bootstrap JS CDN -->
+    <!-- 引入 Bootstrap 5 JS CDN (Popper.js for tooltips, etc. included) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
