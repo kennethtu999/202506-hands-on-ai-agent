@@ -3,92 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>皮卡丘的奇妙一天</title>
-    <!-- Bootstrap CSS CDN -->
+    <title>我的單頁式網站</title>
+    <!-- 引入 Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts Noto Sans TC (for Traditional Chinese) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: #ffe082; /* 皮卡丘黃 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
             color: #333;
-            line-height: 1.8;
+            text-align: center;
         }
         .container {
             background-color: #fff;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #ff9800; /* 橘色系 */
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        img {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            height: auto;
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 40px auto;
         }
-        .section-title {
-            color: #ff5722; /* 橘紅色 */
-            margin-top: 40px;
+        h1 {
+            color: #0056b3;
             margin-bottom: 20px;
-            font-weight: 700;
         }
         p {
-            text-align: justify;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
-        .lead {
-            font-size: 1.25rem;
-            font-weight: 300;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: #777;
-            font-size: 0.9em;
-            border-top: 1px solid #eee;
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>皮卡丘的奇妙一天</h1>
-        <p class="lead text-center">太陽從東方緩緩升起，金色的光芒灑落在真新鎮的屋頂上。在小智的家裡，一團黃色的身影正從睡夢中醒來。牠就是我們最可愛的電氣鼠寶可夢——皮卡丘！</p>
-
-        <h2 class="section-title">在家裡的生活</h2>
-        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png" alt="皮卡丘在家裡舒適的模樣" class="img-fluid">
-        <p>皮卡丘伸了個懶腰，耳朵靈敏地抖了抖，然後跳下床。牠先是跑到廚房，看到小智準備好的樹果早餐，開心地享受著。吃完早餐，牠喜歡在客廳裡和夥伴們玩耍，或者在窗邊曬曬太陽，享受清晨的寧靜時光。有時，牠也會偷偷地在沙發上打個盹，發出可愛的「皮卡皮卡」聲。</p>
-
-        <h2 class="section-title">湖畔的寧靜時光</h2>
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="皮卡丘在湖邊凝視水面" class="img-fluid">
-        <p>午餐過後，小智帶著皮卡丘來到附近的湖泊。皮卡丘雖然是電氣屬性，不喜歡直接下水游泳，但牠喜歡坐在湖邊的石頭上，好奇地看著鯉魚王在水裡跳躍，或是觀察水面上蜻蜓點水。有時，牠也會用尾巴輕輕拍打水面，濺起小小的水花，感受清涼，享受著這份獨有的寧靜。</p>
-
-        <h2 class="section-title">樹林裡的冒險</h2>
-        <img src="https://img.pokemondb.net/artwork/large/pikachu.jpg" alt="皮卡丘在樹林裡探索" class="img-fluid">
-        <p>下午，他們走進了茂密的森林。皮卡丘最喜歡在樹林裡穿梭了！牠敏捷地跳躍在樹枝間，尋找著新鮮的樹果，或者追逐著綠毛蟲和獨角蟲。電氣袋時不時閃爍，興奮地探索著大自然的奧秘。牠還會幫助小智尋找迷失的寶可夢，展現牠的領導力與智慧，確保每個夥伴都能安全地享受森林。</p>
-
-        <h2 class="section-title">仰望天際的夢想</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a6/Pikachu_artwork_for_Pokemon_Red_and_Blue.webp" alt="皮卡丘仰望天空，充滿希望" class="img-fluid">
-        <p>傍晚時分，皮卡丘會和小智一起躺在草地上，仰望著天空。牠會追逐著在空中飛翔的波波或烈雀，雖然自己不能飛，但牠會用牠的電氣招式，向天空中的雲朵發射電光，仿佛在和星星打招呼。有時，也會和小智的噴火龍或大比鳥一起，感受高空中的風，想像自己也能自由自在地翱翔天際。</p>
-
-        <p class="text-center">夜幕降臨，皮卡丘和小智帶著一天滿滿的回憶回到家。牠會蜷縮在小智的肩頭，或是在溫暖的被窩裡，回味著今天充滿冒險和樂趣的一天。在甜美的夢鄉中，皮卡丘期待著下一個充滿驚喜的明天，繼續牠與小智的寶可夢之旅。</p>
+        <h1>歡迎來到我的單頁式網站！</h1>
+        <p>這是一個簡單的展示頁面，旨在說明如何透過 CDN 引入 CSS、JavaScript 和圖片資源，以實現一個美觀且功能完善的單頁式應用程式。</p>
+        <p>我們使用了 Bootstrap 來快速建立響應式佈局，並透過 CDN 引入其樣式表和腳本。圖片也是直接從 CDN 取得。</p>
+        <!-- 引入圖片 CDN -->
+        <img src="https://picsum.photos/id/237/800/400" alt="隨機圖片">
+        <p>希望您喜歡這個簡潔的範例！</p>
     </div>
 
-    <footer>
-        <p>&copy; 2024 皮卡丘的每一天。所有權利保留。</p>
-        <p>此頁面僅為概念驗證（POC）用途，並無營利行為。</p>
-    </footer>
-
-    <!-- Bootstrap Bundle JS CDN (此頁面僅需基礎顯示，JS非必要但保留，以防未來擴充) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入 Popper.js 和 Bootstrap JS CDN (Bootstrap 需要 Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
