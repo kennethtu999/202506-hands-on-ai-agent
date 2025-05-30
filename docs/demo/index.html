@@ -1,110 +1,179 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>皮卡丘：IBM 顧問的一天</title>
-    <!-- 引入 Bootstrap 5 CSS CDN -->
+    <title>皮卡丘IBM顧問一日生活：ITA LEADER的電力工作術</title>
+    <!-- 引入 Bootstrap 5.3.3 CDN for styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 引入 Bootstrap Icons CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
+            font-family: '微軟正黑體', 'Microsoft JhengHei', sans-serif;
+            background-color: #f0f8ff; /* 淡藍色背景 */
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            max-width: 800px;
-            margin-top: 50px;
-            background-color: #ffffff;
-            padding: 40px;
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         h1, h2 {
-            color: #007bff;
+            color: #ffcc00; /* 皮卡丘黃 */
             text-align: center;
             margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .section-title {
-            color: #28a745;
-            font-size: 1.8rem;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 10px;
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #ffd700;
+            padding-bottom: 15px;
         }
-        .pikachu-img {
-            display: block;
-            margin: 0 auto 30px auto;
-            max-width: 200px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-        p {
-            line-height: 1.8;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        .card {
-            border: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        h2 {
+            font-size: 2rem;
+            color: #4a90e2; /* IBM 藍 */
+            border-left: 5px solid #4a90e2;
+            padding-left: 15px;
+            margin-top: 40px;
             margin-bottom: 25px;
         }
-        .card-header {
-            background-color: #e2f0fe;
-            color: #007bff;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-bottom: 1px solid #d1e7fd;
+        .section-content {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 25px;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
         }
-        .text-center {
+        .section-content:nth-child(odd) {
+            flex-direction: row-reverse; /* Alternate image and text position */
+        }
+        .section-image {
+            flex: 0 0 300px; /* Fixed width for image */
+            min-width: 250px; /* Ensure image isn't too small */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .section-image:hover {
+            transform: scale(1.03);
+        }
+        .section-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .section-text {
+            flex: 1;
+            padding: 15px;
+            background-color: #e6f7ff; /* 淺藍色背景 */
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .section-text p {
+            margin-bottom: 10px;
+        }
+        .footer {
             text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .section-content {
+                flex-direction: column !important; /* Stack vertically on small screens */
+                align-items: center;
+            }
+            .section-image {
+                flex: none;
+                width: 80%; /* Adjust image width for small screens */
+            }
+            .section-text {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-5">皮卡丘：IBM 顧問的一天</h1>
-        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu as an IBM Consultant" class="pikachu-img">
+        <h1>皮卡丘IBM顧問一日生活：ITA LEADER的電力工作術</h1>
+        <p class="text-center lead">
+            身為一位專精於數位轉型與顧問服務的IBM ITA LEADER，皮卡丘如何運用他獨特的「電力」與敏捷思維，
+            在繁忙的顧問日程中，精準地完成每一項任務？讓我們一探究竟！
+        </p>
 
-        <p class="lead text-center">想像一下，當我們最愛的電力鼠寶皮卡丘，披上西裝，成為一位嚴謹卻不失活力的 IBM 顧問時，他的一天會是如何呢？</p>
-
-        <div class="card">
-            <div class="card-header">
-                <i class="bi bi-sun-fill"></i> 早上：需求訪談 (09:00 - 12:00)
+        <h2>⚡ 上午：需求訪談 - 電力十足的「聆聽」與「洞察」</h2>
+        <div class="section-content">
+            <div class="section-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pikachu_original.svg/1200px-Pikachu_original.svg.png" alt="皮卡丘與客戶訪談">
             </div>
-            <div class="card-body">
-                <p>清晨，皮卡丘會準時出現在客戶的會議室。他那雙大耳朵不僅用來聽取微弱的電流聲，更是專注於捕捉客戶每一個字眼，不放過任何需求細節。他的口頭禪「皮卡！皮卡！」在這時變成了高效的確認語：「確認收到！」、「這個點子很棒，還有嗎？」</p>
-                <p>當客戶說明遇到瓶頸時，皮卡丘會適時地放出輕微的「十萬伏特」電光，不是攻擊，而是像投射燈一樣，精準地照亮白板上的關鍵詞彙或圖表，幫助客戶釐清思路。他擅長用其獨特的「電力感應」來理解潛在需求和痛點，確保所有討論都充滿活力且富有成效。</p>
+            <div class="section-text">
+                <p><strong>早上 9:00 - 12:00</strong>，皮卡丘身穿訂製的IBM藍色小西裝，端坐在客戶會議室。他的耳朵敏銳地捕捉著客戶的每一個字眼，不時發出「Pika Pika！」的聲音，那並非無意義的叫聲，而是經過深度思考後，針對客戶需求發出的「啊哈！」時刻。</p>
+                <p>他會運用「電光石火」般的速度在心智圖上繪製需求，當客戶對某個痛點描述不清時，他會釋放微弱的「十萬伏特」能量，輕輕觸碰投影螢幕，讓模糊的概念瞬間清晰，並引導客戶說出核心痛點。他的提問總是直指問題核心，確保所有需求都被精準捕獲。</p>
+                <p>在會議結束前，他會用一句響亮的「Pikachu！」總結今日訪談重點，並透過眼神交流，確保客戶對本次溝通成果感到「電力滿滿」。</p>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <i class="bi bi-file-earmark-text-fill"></i> 下午：文件撰寫 (13:00 - 17:00)
+        <h2>📝 下午：文件撰寫 - 高效而精準的「知識整理」</h2>
+        <div class="section-content">
+            <div class="section-image">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a6/Pikachu_artwork_for_Pokémon_Red_and_Blue.png" alt="皮卡丘在電腦前工作">
             </div>
-            <div class="card-body">
-                <p>午餐過後，皮卡丘會回到他的工作站。這時，他不再是活蹦亂跳的電力寶貝，而是化身為專注的文案大師。他會打開筆電，利用「高速移動」的思維模式，將早上收集到的零散資訊快速梳理成邏輯清晰的需求文件、解決方案架構圖或會議紀要。</p>
-                <p>他的「電擊」能力則用於確保文件內容的精確性——任何模糊或模稜兩可的語句都會被他敏銳地「電」出來，然後修正。皮卡丘堅信，一份「充滿電力」的文件，必須既全面又易懂，才能讓客戶和團隊都「充電」滿滿，快速理解。</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <i class="bi bi-calendar-check-fill"></i> 晚上：進度匯報 (17:30 - 18:30)
-            </div>
-            <div class="card-body">
-                <p>傍晚時分，皮卡丘會與專案經理 (PM) 進行每日的進度匯報。他會簡潔有力地說明今日完成的任務、遇到的挑戰以及下一步的計畫。他的「電光一閃」在此時是為了快速切換簡報頁面，或是用其標誌性的「Pika-chu！」聲來強調專案的亮點。</p>
-                <p>如果PM有任何疑問，皮卡丘會用他招牌的「鐵尾」拍打桌子，不是生氣，而是表示「我已掌握所有細節，請放心！」他會確保所有進度都透明公開，並為PM提供足夠的信心，讓專案管理團隊也能感受到「電力十足」的推進效率。在皮卡丘的協助下，專案的成功指日可待！</p>
+            <div class="section-text">
+                <p><strong>下午 1:30 - 5:30</strong>，午餐後，皮卡丘會回到他的「電氣辦公室」。他不需要咖啡提神，因為他天生就是個能量包。他會將上午收集到的龐大資訊，利用「打雷」般的專注力，轉化為條理清晰、邏輯嚴謹的顧問文件。</p>
+                <p>在撰寫解決方案架構時，他會運用「電球」般的視覺化能力，將複雜的系統流程圖繪製得一目瞭然。對於技術規格，他會像發射「伏特攻擊」般精確，確保每一個參數都毫無差池。即使是密密麻麻的文字，在他的整理下，也能散發出簡潔明亮的「電氣」光芒。</p>
+                <p>他深知文件的美觀與易讀性同樣重要，所以即使是內部文件，也會力求排版整齊，圖文並茂，讓閱讀者「電力充沛」地吸收資訊。</p>
             </div>
         </div>
 
-        <p class="text-center mt-5">皮卡丘證明了，即使是再小的個體，也能在企業顧問的世界中發光發熱，帶來前所未有的「電力」與效率！</p>
+        <h2>📈 晚上：進度更新 - 簡潔有力的「電力彙報」</h2>
+        <div class="section-content">
+            <div class="section-image">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="皮卡丘開會">
+            </div>
+            <div class="section-text">
+                <p><strong>晚上 7:00 - 8:00</strong>，當其他顧問可能還在與PPT搏鬥時，皮卡丘已經準備好向專案經理（PM）進行進度彙報。他會將一天的成果濃縮成「電擊」般簡潔有力的幾頁投影片。</p>
+                <p>他不會使用冗長的描述，而是直接點出重點、風險與下一步計畫。當PM提問時，皮卡丘的「高速移動」思維能立即給出精準答覆，有時甚至伴隨著微弱的「電磁波」信號，讓會議室的氛圍充滿高效與積極。</p>
+                <p>他堅信，優秀的進度更新，就像一場完美的「閃電」秀，快速、有力，且讓人印象深刻。PM總能從他的彙報中，感受到專案的「電力」與穩定進展，安心地結束一天的繁忙工作。</p>
+            </div>
+        </div>
+
+        <p class="text-center mt-5">
+            這就是IBM ITA LEADER 皮卡丘的一日電力工作術！他不僅是技術顧問，更是將智慧與能量完美結合的效率典範。
+        </p>
     </div>
 
-    <!-- 引入 Bootstrap 5 JS CDN -->
+    <footer class="footer">
+        <p>&copy; 2024 皮卡丘顧問服務有限公司。版權所有，電力滿載。</p>
+    </footer>
+
+    <!-- 引入 Bootstrap 5.3.3 JavaScript CDN (Optional, for interactive components if any) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入 jQuery CDN (Optional, if other JS functions are needed) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 </html>
