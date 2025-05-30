@@ -1,273 +1,118 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBM 創新時間軸</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>皮卡丘溫馨的一天</title>
+    <!-- Google Fonts Noto Sans TC - 從 CDN 引入，提供繁體中文優美字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f8ff, #e0f7fa); /* 柔和的漸層背景色 */
             color: #333;
-            padding-top: 56px; /* Adjust for fixed-top navbar */
-        }
-        .navbar {
-            background-color: #000; /* IBM Dark Blue, a common IBM color */
-        }
-        .navbar-brand, .nav-link {
-            color: #fff !important;
-        }
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://picsum.photos/id/400/1600/600') no-repeat center center; /* Generic tech background */
-            background-size: cover;
-            color: #fff;
-            padding: 100px 0;
-            text-align: center;
-        }
-        .timeline {
-            position: relative;
-            padding: 50px 0;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px;
-            background-color: #007bff; /* IBM Blue */
-            transform: translateX(-50%);
-        }
-        .timeline-item {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse; /* Alternate sides */
-        }
-        .timeline-item-content {
-            width: 45%;
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        .timeline-item-content::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            top: 20px;
-        }
-        .timeline-item:nth-child(odd) .timeline-item-content::after {
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent #fff;
-            right: -10px; /* Arrow pointing to the timeline line */
-        }
-        .timeline-item:nth-child(even) .timeline-item-content::after {
-            border-width: 10px 10px 10px 0;
-            border-color: transparent #fff transparent transparent;
-            left: -10px; /* Arrow pointing to the timeline line */
-        }
-        .timeline-item-date {
-            width: 10%;
-            text-align: center;
-            position: relative;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: #007bff; /* IBM Blue for dates */
-            font-weight: bold;
+            align-items: center;
+            min-height: 100vh;
         }
-        .timeline-item-date::before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: #007bff;
-            border-radius: 50%;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            border: 2px solid #fff; /* White border around the circle */
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 柔和的陰影效果 */
+            text-align: center;
+            animation: fadeIn 1.5s ease-out; /* 頁面載入動畫 */
         }
-        .timeline-item img {
-            max-width: 100%;
-            border-radius: 4px;
-            margin-bottom: 15px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #f7d02c; /* 皮卡丘的代表黃色 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            font-weight: 700;
         }
         h2 {
-            color: #000000; /* IBM Dark Blue */
+            color: #f7d02c;
+            margin-top: 40px;
             margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 2px solid #f7d02c; /* 底部線條裝飾 */
+            padding-bottom: 10px;
+            display: inline-block;
         }
-        footer {
-            background-color: #000;
-            color: #fff;
-            padding: 30px 0;
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.1em;
+            color: #555;
+        }
+        .image-section {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* 圖片間距 */
+        }
+        .image-section img {
+            max-width: 100%;
+            width: 250px; /* 固定圖片寬度以保持美觀一致性 */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease; /* 圖片懸停放大效果 */
+        }
+        .image-section img:hover {
+            transform: scale(1.05);
+        }
+        .intro, .conclusion {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 25px;
+            font-size: 1.2em;
             text-align: center;
-        }
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 20px; /* Timeline line moves to left for small screens */
-            }
-            .timeline-item {
-                flex-direction: column !important; /* Stack items vertically */
-                margin-bottom: 30px;
-            }
-            .timeline-item-content {
-                width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-                order: 2; /* Content after date on small screens */
-            }
-            .timeline-item-date {
-                width: 100%;
-                text-align: left;
-                order: 1; /* Date before content on small screens */
-                padding-left: 50px;
-                margin-bottom: 15px;
-            }
-            .timeline-item-date::before {
-                left: 20px;
-                transform: translateX(0);
-            }
-            .timeline-item-content::after {
-                display: none; /* Hide the arrow on small screens */
-            }
-            body {
-                padding-top: 0; /* Remove padding for smaller screens if navbar is not fixed or adjusts */
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://www.ibm.com/content/dam/ibm/common/logos/ibm-logo-white.svg" alt="IBM Logo" height="30">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">首頁</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#timeline-section">時間軸</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">關於IBM</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="container">
+        <h1>皮卡丘溫馨的一天</h1>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1>IBM：塑造科技未來</h1>
-            <p class="lead">探索我們的創新歷程，從過去到未來。</p>
-            <a href="#timeline-section" class="btn btn-primary btn-lg mt-3">探索時間軸</a>
-        </div>
-    </section>
+        <p class="intro">
+            在一個陽光明媚的早晨，森林深處的一棟小巧樹屋裡，小小的皮卡丘伸了個懶腰，牠金黃色的皮毛在晨光下閃閃發亮。今天，牠將展開一場充滿樂趣的居家冒險與大自然的探索。
+        </p>
 
-    <!-- Timeline Section -->
-    <section id="timeline-section" class="timeline container">
-        <h2 class="text-center mb-5">IBM 創新時間軸 (新到舊)</h2>
-
-        <!-- Timeline Item 1 (Newest) -->
-        <div class="timeline-item">
-            <div class="timeline-item-content">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/IBM_Quantum_System_One_in_Ehningen.jpg/800px-IBM_Quantum_System_One_in_Ehningen.jpg" alt="IBM 量子電腦" class="img-fluid mb-3">
-                <h3>量子運算突破</h3>
-                <p>IBM 持續在量子運算領域取得領先，開發出越來越強大的量子處理器，為解決複雜問題開闢了新途徑，並推動了科學探索的界限。</p>
-            </div>
-            <div class="timeline-item-date">
-                <p>2020年代</p>
-            </div>
+        <h2>在家裡</h2>
+        <p>
+            牠從舒適的小窩裡跳出來，首先做的是衝向牠最愛的漿果碗，咕嚕咕嚕地享受著美味的早餐。吃飽後，皮卡丘會跳上書架，用牠靈巧的爪子輕輕撥動書本，偶爾還會好奇地探頭看看書頁上的圖案。牠也會在客廳裡追逐著自己的影子，或是和牠最喜歡的雷電玩偶玩摔角。當陽光透過窗戶灑進來時，皮卡丘會選擇一個溫暖的角落，瞇著眼睛享受片刻的午憩，尾巴不時輕輕擺動，發出微弱的電光。下午，牠或許會幫忙整理一下牠的樹屋，把散落的能量方塊分類擺好，展現牠細心的一面。
+        </p>
+        <div class="image-section">
+            <!-- 圖片來自 placeholder CDN，用於展示皮卡丘在家裡的景象 -->
+            <img src="https://via.placeholder.com/250x250/FFD700/FFFFFF?text=Pikachu+at+Home+1" alt="皮卡丘在家裡玩耍">
+            <img src="https://via.placeholder.com/250x250/FFD700/FFFFFF?text=Pikachu+at+Home+2" alt="皮卡丘在家裡休息">
         </div>
 
-        <!-- Timeline Item 2 -->
-        <div class="timeline-item">
-            <div class="timeline-item-content">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Watson_with_Jeopardy_contestants.jpg/800px-Watson_with_Jeopardy_contestants.jpg" alt="IBM Watson" class="img-fluid mb-3">
-                <h3>IBM Watson 誕生</h3>
-                <p>IBM Watson 是一個人工智能系統，以其在智力競賽節目《危險邊緣》中擊敗人類冠軍而聞名。它標誌著認知計算和自然語言處理領域的重要里程碑。</p>
-            </div>
-            <div class="timeline-item-date">
-                <p>2011</p>
-            </div>
+        <h2>靠近水邊</h2>
+        <p>
+            黃昏時分，皮卡丘決定到附近的清澈小溪邊散步。牠小心翼翼地靠近水邊，避免直接跳進水裡，因為電屬性的牠可不喜歡全身濕透的。牠會把尾巴輕輕伸進溪水裡，感受清涼的流動，偶爾會從水中撈起一顆光滑的石頭，然後好奇地嗅嗅。當有水花濺起時，牠會興奮地跳開，然後用牠的電擊絕招在水面上製造出一些微小的電花，讓水面泛起漣漪，就像是在表演一場光影秀。牠也會靜靜地觀察水裡的魚兒游來游去，享受這份大自然的寧靜與活力。
+        </p>
+        <div class="image-section">
+            <!-- 圖片來自 placeholder CDN，用於展示皮卡丘在水邊的景象 -->
+            <img src="https://via.placeholder.com/250x250/ADD8E6/FFFFFF?text=Pikachu+near+Water+1" alt="皮卡丘在小溪邊">
+            <img src="https://via.placeholder.com/250x250/ADD8E6/FFFFFF?text=Pikachu+near+Water+2" alt="皮卡丘觀察水面">
         </div>
 
-        <!-- Timeline Item 3 -->
-        <div class="timeline-item">
-            <div class="timeline-item-content">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Deep_Blue_chess_computer.jpg/800px-Deep_Blue_chess_computer.jpg" alt="深藍電腦" class="img-fluid mb-3">
-                <h3>深藍擊敗世界冠軍</h3>
-                <p>IBM 的超級電腦「深藍」在國際象棋比賽中擊敗了當時的世界冠軍加里·卡斯帕羅夫，這是機器首次擊敗人類世界冠軍，標誌著人工智能發展的一個重要轉折點。</p>
-            </div>
-            <div class="timeline-item-date">
-                <p>1997</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 4 -->
-        <div class="timeline-item">
-            <div class="timeline-item-content">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/IBM_PC_5150.jpg/800px-IBM_PC_5150.jpg" alt="IBM 個人電腦" class="img-fluid mb-3">
-                <h3>IBM 個人電腦 (PC) 推出</h3>
-                <p>IBM 5150 個人電腦的推出，將個人電腦帶入主流市場，對計算機產業產生了深遠的影響，為後來的個人計算機時代奠定了基礎。</p>
-            </div>
-            <div class="timeline-item-date">
-                <p>1981</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 5 -->
-        <div class="timeline-item">
-            <div class="timeline-item-content">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/IBM_System_360_model_20_side_view.jpg/800px-IBM_System_360_model_20_side_view.jpg" alt="IBM System/360" class="img-fluid mb-3">
-                <h3>IBM System/360 發布</h3>
-                <p>System/360 是一個具有劃時代意義的電腦系列，引入了兼容性概念，允許軟體在不同型號的硬件上運行，徹底改變了企業計算。</p>
-            </div>
-            <div class="timeline-item-date">
-                <p>1964</p>
-            </div>
-        </div>
-
-        <!-- Timeline Item 6 (Oldest) -->
-        <div class="timeline-item">
-            <div class="timeline-item-content">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Hollerith_Tabulating_Machine_1890.jpg/800px-Hollerith_Tabulating_Machine_1890.jpg" alt="打孔卡製表機" class="img-fluid mb-3">
-                <h3>Herman Hollerith 發明製表機</h3>
-                <p>IBM 的前身公司的創始人 Herman Hollerith 發明了電動製表機，用於處理1890年美國人口普查數據，這標誌著信息處理自動化的開端。</p>
-            </div>
-            <div class="timeline-item-date">
-                <p>1890</p>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Footer -->
-    <footer class="mt-5">
-        <div class="container">
-            <p>&copy; 2024 IBM. 版權所有。此為概念驗證網頁。</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS CDN (Popper.js included) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <p class="conclusion">
+            夜幕降臨，皮卡丘帶著滿足的心情回到牠溫暖的樹屋。洗淨身上的泥土，牠跳回了牠柔軟的小窩，在星星的陪伴下，進入了甜美的夢鄉，期待著下一個充滿陽光的日子。
+        </p>
+    </div>
 </body>
 </html>
