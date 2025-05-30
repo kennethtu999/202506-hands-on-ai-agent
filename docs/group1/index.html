@@ -4,89 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IBM 形象輪播</title>
-    <!-- 引入 Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- 引入 IBM Plex Sans 字體 CDN -->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 引入 Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'IBM Plex Sans', sans-serif; /* 使用 IBM Plex Sans 字體 */
-            background-color: #f0f4f8; /* 淺灰色背景 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px; /* 增加外邊距以防內容太貼邊 */
-            box-sizing: border-box; /* 確保 padding 不增加總寬度 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            padding-top: 20px;
         }
-        .carousel-container {
-            width: 90%; /* 輪播寬度調整，使其在小螢幕上也能良好顯示 */
-            max-width: 960px; /* 最大寬度 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: white;
-            padding: 20px; /* 增加內邊距 */
+        .container {
+            max-width: 960px;
+            margin-top: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1, h2 {
+            color: #1a004c; /* 深紫色，接近IBM藍的深色調 */
+            text-align: center;
+            margin-bottom: 25px;
         }
         .carousel-item img {
-            height: 400px; /* 固定圖片高度 */
-            object-fit: cover; /* 保持圖片比例並裁切 */
-            width: 100%; /* 圖片寬度填滿 */
-            border-radius: 5px; /* 圖片圓角 */
+            height: 450px; /* 固定圖片高度 */
+            object-fit: cover; /* 讓圖片填滿空間並裁剪 */
+            width: 100%;
+            border-radius: 8px;
         }
         .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.6); /* 半透明背景 */
-            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
             border-radius: 5px;
-            bottom: 20px; /* 調整字幕位置 */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%; /* 字幕寬度 */
-            max-width: fit-content; /* 字幕內容寬度 */
+            padding: 10px 15px;
+            bottom: 20px;
         }
-        .carousel-caption h5, .carousel-caption p {
-            color: white;
-            margin-bottom: 5px;
+        .carousel-caption h5 {
+            color: #fff;
+            font-size: 1.5rem;
         }
-        .ibm-blue-text {
-            color: #0F62FE; /* IBM 品牌藍色 */
+        .carousel-caption p {
+            color: #eee;
+            font-size: 1rem;
         }
-        h1 {
+        .footer-text {
             text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-            font-weight: 700;
-        }
-        /* 響應式調整 */
-        @media (max-width: 768px) {
-            .carousel-item img {
-                height: 250px; /* 小螢幕下圖片高度 */
-            }
-            .carousel-caption {
-                position: relative; /* 小螢幕下字幕浮動在圖片下方 */
-                left: auto;
-                transform: none;
-                width: auto;
-                margin-top: 10px;
-            }
-            .carousel-container {
-                padding: 15px;
-            }
-        }
-        @media (max-width: 480px) {
-            .carousel-item img {
-                height: 180px; /* 更小螢幕下圖片高度 */
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="carousel-container">
-        <h1><span class="ibm-blue-text">IBM</span> 企業形象輪播</h1>
+    <div class="container">
+        <h1>探索 IBM 的世界</h1>
+        <h2 class="mb-4">創新、科技與未來</h2>
+
         <div id="ibmCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#ibmCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -96,48 +68,49 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <!-- 請將以下圖片 URL 替換為實際的 IBM 相關圖片 -->
-                    <img src="https://picsum.photos/seed/ibm1/900/400" class="d-block w-100" alt="IBM 創新科技">
+                    <img src="https://images.unsplash.com/photo-1596701072551-bce0b5368a5c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="IBM Quantum Computing">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>創新科技，引領未來</h5>
-                        <p>IBM 在人工智慧、雲端運算與量子科技領域持續耕耘。</p>
+                        <h5>量子運算</h5>
+                        <p>IBM 在量子運算領域持續突破，引領下一代計算革命。</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://picsum.photos/seed/ibm2/900/400" class="d-block w-100" alt="IBM 企業服務">
+                    <img src="https://images.unsplash.com/photo-1521737711867-bb436a5f0884?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="IBM AI and Data">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>卓越服務，客戶至上</h5>
-                        <p>提供全球企業轉型升級的完整解決方案。</p>
+                        <h5>人工智慧與數據</h5>
+                        <p>Watson 與 AI 技術，協助企業駕馭數據，做出更明智的決策。</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://picsum.photos/seed/ibm3/900/400" class="d-block w-100" alt="IBM 永續發展">
+                    <img src="https://images.unsplash.com/photo-1542831371-d60207865e23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="IBM Cloud Solutions">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>永續發展，共創美好</h5>
-                        <p>致力於環境保護與社會責任，推動綠色科技。</p>
+                        <h5>雲端解決方案</h5>
+                        <p>IBM 雲端提供企業級的混合雲架構，安全且富有彈性。</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://picsum.photos/seed/ibm4/900/400" class="d-block w-100" alt="IBM 全球團隊">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="IBM Global Services">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>全球團隊，協同合作</h5>
-                        <p>來自世界各地的頂尖人才，共同開創智能新局。</p>
+                        <h5>全球服務</h5>
+                        <p>透過專業顧問與技術服務，IBM 助客戶實現數位轉型。</p>
                     </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#ibmCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden">上一張</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#ibmCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden">下一張</span>
             </button>
         </div>
+        <p class="footer-text">
+            此頁面僅為展示用，圖片來自 Unsplash，版權歸原作者所有。
+        </p>
     </div>
 
-    <!-- 引入 Popper.js 和 Bootstrap JS CDN (必須在 body 結束標籤前) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTFyflwtYc4bOpHJa+j7bgeIe3Ka9xp/YgDFcITvM/ejg6/Q4B2Y" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZsvFpLmCD6fQO7sPzQEV9kofssGYo1gPUPgXpB6q9JdZ4k1d5m2s0bV2lq" crossorigin="anonymous"></script>
+    <!-- 引入 Bootstrap 5 JS CDN (包含 Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
