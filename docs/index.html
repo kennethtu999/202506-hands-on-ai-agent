@@ -1,1 +1,119 @@
-HELLO
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工作坊組別列表</title>
+    <!-- 引入 Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 960px;
+        }
+        .card-custom {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .card-body-custom {
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        .group-link {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">工作坊組別選單</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Group 1 -->
+            <div class="col">
+                <a href="group1/index.html" class="group-link">
+                    <div class="card h-100 card-custom">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title mb-0">第一組</h5>
+                            <p class="card-text text-muted mt-2">點擊進入組別頁面</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Group 2 -->
+            <div class="col">
+                <a href="group2/index.html" class="group-link">
+                    <div class="card h-100 card-custom">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title mb-0">第二組</h5>
+                            <p class="card-text text-muted mt-2">點擊進入組別頁面</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Group 3 -->
+            <div class="col">
+                <a href="group3/index.html" class="group-link">
+                    <div class="card h-100 card-custom">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title mb-0">第三組</h5>
+                            <p class="card-text text-muted mt-2">點擊進入組別頁面</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Group 4 -->
+            <div class="col">
+                <a href="group4/index.html" class="group-link">
+                    <div class="card h-100 card-custom">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title mb-0">第四組</h5>
+                            <p class="card-text text-muted mt-2">點擊進入組別頁面</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Group 5 -->
+            <div class="col">
+                <a href="group5/index.html" class="group-link">
+                    <div class="card h-100 card-custom">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title mb-0">第五組</h5>
+                            <p class="card-text text-muted mt-2">點擊進入組別頁面</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Group 6 -->
+            <div class="col">
+                <a href="group6/index.html" class="group-link">
+                    <div class="card h-100 card-custom">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title mb-0">第六組</h5>
+                            <p class="card-text text-muted mt-2">點擊進入組別頁面</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 Bootstrap 5 JS CDN (包含 Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
