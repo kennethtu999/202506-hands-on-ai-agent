@@ -1,0 +1,12 @@
+{
+  "name": "ai-workshop",
+  "version": "1.0.0",
+  "description": "AI Trend & Hands-on Marp Slide",
+  "scripts": {
+    "build": "npm run html",
+    "html": "marp slide/index.md --html -o docs/slide/index.html"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.1.2"
+  }
+}
