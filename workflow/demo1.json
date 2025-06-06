@@ -1,0 +1,75 @@
+{
+    "nodes": [
+      {
+        "parameters": {
+          "path": "welcome"
+        },
+        "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "typeVersion": 1,
+        "position": [
+          -100,
+          0
+        ],
+        "id": "beb3a734-c588-4b65-b65f-0c1da9586082",
+        "name": "MCP Server Trigger",
+        "webhookId": "ce391937-582a-4617-aa94-aaad6c6dd73d"
+      },
+      {
+        "parameters": {
+          "description": "Call this tool to get welcome message",
+          "jsCode": "// Example: convert the incoming query to uppercase and return it\nreturn 'welcome IBMer ' + query.toUpperCase()"
+        },
+        "type": "@n8n/n8n-nodes-langchain.toolCode",
+        "typeVersion": 1.2,
+        "position": [
+          -80,
+          200
+        ],
+        "id": "f7adef86-2a77-45e8-a5a9-42c0f6fb0316",
+        "name": "Welcome"
+      },
+      {
+        "parameters": {
+          "description": "Call this tool to get daniel profile",
+          "jsCode": "// Example: convert the incoming query to uppercase and return it\nreturn '一位偉大的架構師，上知天文，下知地理，文經武律，以立其身'"
+        },
+        "type": "@n8n/n8n-nodes-langchain.toolCode",
+        "typeVersion": 1.2,
+        "position": [
+          220,
+          200
+        ],
+        "id": "7b7aea56-4287-4f7c-8cd2-3975bc0e1b03",
+        "name": "OutputFormat"
+      }
+    ],
+    "connections": {
+      "Welcome": {
+        "ai_tool": [
+          [
+            {
+              "node": "MCP Server Trigger",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OutputFormat": {
+        "ai_tool": [
+          [
+            {
+              "node": "MCP Server Trigger",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "pinData": {},
+    "meta": {
+      "templateCredsSetupCompleted": true,
+      "instanceId": "b2de71d93034460764ef3a025e5da5ab650c2fa490fd647069a5dfaf9701ab8c"
+    }
+  }

@@ -1,0 +1,580 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -100,
+        180
+      ],
+      "id": "52bf2b23-9c33-48ba-804a-c6002c26674e",
+      "name": "When chat message received",
+      "webhookId": "71fc9798-3ff1-4d3b-a65c-91394aadfdcc"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.content }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "你是一位注重美感的前端工程式，專案是寫一頁式 index.html，務必寫成HTML, 並且會善用cdn引入使用現成Design System， 所以任何需求你都會提供 單一 HTML 檔案。了解與使用繁體中文呈現也是你注重的。POC而已，不要加上integrity check尤其是css/js的引用\n\n圖庫限用: Unsplash, Pexels, Pixabay,RawPixel,LAION Dataset,Open Images Dataset by Google,Wikimedia \n\n最終輸出要是單一頁面HTML"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        420,
+        120
+      ],
+      "id": "af08827a-3d44-4403-82fe-bc335a59298a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "kennethtu999",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "202506-hands-on-ai-agent",
+          "mode": "name"
+        },
+        "filePath": "=docs/{{ $('attribute').item.json.group }}/index.html",
+        "asBinaryProperty": false,
+        "additionalParameters": {
+          "reference": ""
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1020,
+        120
+      ],
+      "id": "1ee4162e-0e55-4ec0-9565-263a2f1eb913",
+      "name": "GitHub GET",
+      "webhookId": "832e62c4-ddd8-4a85-ba52-c47e39e7e46f",
+      "alwaysOutputData": false,
+      "credentials": {
+        "githubApi": {
+          "id": "lyIGb7piXepCIIec",
+          "name": "GitHub account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "kennethtu999",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "202506-hands-on-ai-agent",
+          "mode": "name"
+        },
+        "filePath": "=docs/{{ $('attribute').item.json.group }}/index.html",
+        "fileContent": "={{ $('html').item.json.code }}",
+        "commitMessage": "yes"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        100
+      ],
+      "id": "197f595b-ba38-4713-849e-d06b121e59a8",
+      "name": "GitHub1 UPDATE",
+      "webhookId": "832e62c4-ddd8-4a85-ba52-c47e39e7e46f",
+      "credentials": {
+        "githubApi": {
+          "id": "lyIGb7piXepCIIec",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "kennethtu999",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "202506-hands-on-ai-agent",
+          "mode": "name"
+        },
+        "filePath": "=docs/{{ $('attribute').item.json.group }}/index.html",
+        "fileContent": "={{ $('html').item.json.code }}",
+        "commitMessage": "yes"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        280
+      ],
+      "id": "c100444c-b3ce-4039-b668-886ae78c724e",
+      "name": "GitHub1 CREATE",
+      "webhookId": "832e62c4-ddd8-4a85-ba52-c47e39e7e46f",
+      "credentials": {
+        "githubApi": {
+          "id": "lyIGb7piXepCIIec",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "Chat",
+        "formDescription": "當皮卡丘成為一位專業的IBM顧問，他會怎麼在早上談需求，下午寫文件，晚上更新進度給PM，依序描述這三個階段\n\n當皮卡丘成為一位專業的IBM顧問，他會怎麼看分析股票2330 的最新消息\n\n當皮卡丘成為一位專業的IBM顧問，重點摘要 股票2330 的最新消息\n\n以 XXX 的觀點對股票 2330 進行分析",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "group",
+              "placeholder": "demo"
+            },
+            {
+              "fieldLabel": "chatInput",
+              "fieldType": "textarea",
+              "placeholder": "當皮卡丘成為一位專業的IBM顧問，他會怎麼在早上談需求，下午寫文件，晚上更新進度給PM"
+            }
+          ]
+        },
+        "options": {
+          "path": "case1"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -100,
+        20
+      ],
+      "id": "92a74fcc-c900-4116-8380-43bb24f37747",
+      "name": "On form submission",
+      "webhookId": "be8a89e8-4d1e-42ee-9340-d7d66e56210f"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "931579f9-6922-4720-a5bb-661e64ca2b95",
+              "name": "group",
+              "value": "={{ $json.group || 'demo' }}",
+              "type": "string"
+            },
+            {
+              "id": "25e011b1-8d43-46f2-8914-d6544a07ee24",
+              "name": "content",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        180,
+        120
+      ],
+      "id": "4646686e-6558-4747-a3c7-ac2457886d90",
+      "name": "attribute"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-sonnet-4-20250514",
+          "mode": "list",
+          "cachedResultName": "Claude Sonnet 4"
+        },
+        "options": {
+          "maxTokensToSample": 10240
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        460
+      ],
+      "id": "32f67171-699f-4ae0-95d0-634b62a0ddf1",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "Wuo80VV7MHca2AYu",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e393ab7e-5502-48b2-a3e5-eedb1a9f1a64",
+              "leftValue": "={{ $json.download_url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1240,
+        120
+      ],
+      "id": "a5ef0deb-1e11-4425-b858-bc8d718ba358",
+      "name": "Create/Update File",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-05-20",
+        "options": {
+          "maxOutputTokens": 10240
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        500,
+        460
+      ],
+      "id": "c9ece412-039c-431e-b878-89cecc89f926",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "wxKtdpAhGeeBtWTS",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"stockId\": \"a string\"\n}"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -80,
+        820
+      ],
+      "id": "0bd14ced-0528-4b23-ae13-0f02c4fc9f39",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "url": "=https://tw.stock.yahoo.com/quote/{{ $json.stockId||'2330' }}.TW/news",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        160,
+        820
+      ],
+      "id": "ca50a18e-b904-4dbf-9628-c572446b26cd",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "description": "call the tool to get stock news",
+        "workflowId": {
+          "__rl": true,
+          "value": "3GnoNe4PQyRwzYEQ",
+          "mode": "list",
+          "cachedResultName": "demo2"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "stockId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('stockId', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "stockId"
+          ],
+          "schema": [
+            {
+              "id": "stockId",
+              "displayName": "stockId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        660,
+        460
+      ],
+      "id": "f0b5f636-1ee1-4961-b309-75c54b8d0d2a",
+      "name": "Call n8n Workflow Tool"
+    },
+    {
+      "parameters": {
+        "jsCode": "function htmlToText(html) {\n  return html\n    .replace(/<script[^>]*>([\\s\\S]*?)<\\/script>/gi, '') // Remove script tags\n    .replace(/<style[^>]*>([\\s\\S]*?)<\\/style>/gi, '')   // Remove style tags\n    .replace(/<\\/?[^>]+(>|$)/g, '')                     // Remove all HTML tags\n    .replace(/&nbsp;/gi, ' ')                           // Handle common entities\n    .replace(/&amp;/gi, '&')\n    .replace(/&lt;/gi, '<')\n    .replace(/&gt;/gi, '>')\n    .replace(/\\s+/g, ' ')                               // Collapse whitespace\n    .trim();\n}\n\nlet html = $input.first().json.data\n\nconst plainText = htmlToText(html);\n\n// Return the result in the expected format\nreturn [\n  {\n    json: {\n      text: plainText,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        380,
+        820
+      ],
+      "id": "30e439f0-ec4f-4345-aee8-ff585c5cdb83",
+      "name": "HTML2TEXT"
+    },
+    {
+      "parameters": {
+        "content": "# 子流程\n## 依股票代碼取得最新消息",
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        620
+      ],
+      "id": "52f1010c-962d-401a-b91b-f6a9cba9a2e9",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# 主流程\n## 使用AI AGENT 取得股票的最新消息，加工後做發佈",
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        -160
+      ],
+      "id": "946c843d-1271-4d48-8e72-058cdb0e4582",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json.output;\n\nconst match = input.match(/```(?:html)?\\s*([\\s\\S]*?)```/);\n\nif (match) {\n  return [\n    {\n      json: {\n        code: match[1].trim(),\n      },\n    },\n  ];\n} else {\n  return [\n    {\n      json: {\n        code: input,\n      },\n    },\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        120
+      ],
+      "id": "876a01b7-67fc-480a-bda5-0e61e3105d17",
+      "name": "html"
+    },
+    {
+      "parameters": {
+        "content": "## 轉換成HTML輸出到 git pages",
+        "height": 100,
+        "width": 440
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        -100
+      ],
+      "id": "24fde30c-5034-4ff5-8069-74e3ca778f9a",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## AI 取得外部資料再做分析輸出",
+        "height": 100,
+        "width": 440
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        340,
+        -100
+      ],
+      "id": "fd6a5186-3429-4e1b-8aa1-c3df62d53a52",
+      "name": "Sticky Note3"
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub GET": {
+      "main": [
+        [
+          {
+            "node": "Create/Update File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "attribute": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create/Update File": {
+      "main": [
+        [
+          {
+            "node": "GitHub1 UPDATE",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GitHub1 CREATE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTML2TEXT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call n8n Workflow Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "html": {
+      "main": [
+        [
+          {
+            "node": "GitHub GET",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b2de71d93034460764ef3a025e5da5ab650c2fa490fd647069a5dfaf9701ab8c"
+  }
+}

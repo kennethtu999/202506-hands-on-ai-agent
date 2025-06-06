@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>AI Agent Workshop - Hands-on DEMO</title> <!-- More descriptive title -->
+    <!-- Tailwind CSS CDN for professional and modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Optional: Basic custom styles if needed, but Tailwind is preferred */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      /* Ensure full height for the sticky footer effect */
+      #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Changed from flex-grow to ensure full viewport height */
+      }
+      /* Max width for content, centered */
+      .content-wrapper {
+        max-width: 80rem; /* Increased max width for more spacious layout */
+        width: 100%; /* Ensure it takes full width within its container */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem; /* p-4 in Tailwind */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+    <!-- Main content wrapper -->
+    <div id="root" class="flex-grow flex flex-col">
+      <div class="content-wrapper flex-grow flex flex-col items-center justify-center text-center">
+        
+        <!-- Header / Hero Section -->
+        <header class="w-full mb-12 py-8">
+          <h1 class="text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+            AI Agent 實作研討會
+          </h1>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            深入探索 AI Agent 的設計、測試與應用，透過實作範例提升您的 AI 技能。
+          </p>
+        </header>
+
+        <!-- Main Content Section - Links presented as cards -->
+        <section class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          
+          <!-- AI Test Flow Link Card -->
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center">
+            <!-- Icon: Checkmark Circle -->
+            <svg class="w-12 h-12 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">AI Agent 測試流程</h2>
+            <p class="text-gray-600 mb-4">
+              引導您了解 AI Agent 的完整測試流程，確保其穩定與效能。
+            </p>
+            <a 
+              href="/form/be8a89e8-4d1e-42ee-9340-d7d66e56210f" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="mt-auto inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-md"
+            >
+              AI Agent 測試
+            </a>
+          </div>
+
+          <!-- AI Test Flow Result Link Card -->
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center">
+            <!-- Icon: Checkmark Circle -->
+            <svg class="w-12 h-12 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">AI Agent 測試流程的結果</h2>
+            <p class="text-gray-600 mb-4">
+              只要30秒的等待時間，就可以來看你的AI Agent測試流程的結果了。
+            </p>
+            <a 
+              href="https://kennethtu999.github.io/202506-hands-on-ai-agent/demo/index.html" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="mt-auto inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-md"
+            >
+            AI Agent 測試結果
+            </a>
+          </div>
+
+          <!-- Presentation Link Card -->
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center">
+            <!-- Icon: Presentation -->
+            <svg class="w-12 h-12 text-orange-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v11a1 1 0 01-1 1H8a1 1 0 01-1-1V4m0 0H5a1 1 0 00-1 1v11a1 1 0 001 1h2m0 0v2a1 1 0 001 1h8a1 1 0 001-1v-2m0 0V9a1 1 0 00-1-1H8a1 1 0 00-1 1v7.02"></path></svg>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">研討會簡報</h2>
+            <p class="text-gray-600 mb-4">
+              查看研討會的完整簡報內容，包含理論基礎與實作指南。
+            </p>
+            <a 
+              href="https://kennethtu999.github.io/202506-hands-on-ai-agent/slide/index.html" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="mt-auto inline-block bg-orange-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-orange-700 transition-colors duration-300 shadow-md"
+            >
+              查看簡報
+            </a>
+          </div>
+
+          <!-- Venue Link Card -->
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center">
+            <!-- Icon: Map Pin -->
+            <svg class="w-12 h-12 text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">研討會會場</h2>
+            <p class="text-gray-600 mb-4">
+              前往研討會主頁面，獲取最新資訊、議程與相關資源。
+            </p>
+            <a 
+              href="https://kennethtu999.github.io/202506-hands-on-ai-agent/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="mt-auto inline-block bg-green-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-green-700 transition-colors duration-300 shadow-md"
+            >
+              前往會場
+            </a>
+          </div>
+
+          <!-- Example Link Card -->
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col items-center text-center">
+            <!-- Icon: Code -->
+            <svg class="w-12 h-12 text-purple-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">實作範例展示</h2>
+            <p class="text-gray-600 mb-4">
+              查看具體的 AI Agent 應用範例，將理論知識轉化為實際成果。
+            </p>
+            <a 
+              href="https://kennethtu999.github.io/202506-hands-on-ai-agent/stock/2025-05-30.html" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="mt-auto inline-block bg-purple-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-purple-700 transition-colors duration-300 shadow-md"
+            >
+              查看範例
+            </a>
+          </div>
+
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer class="w-full bg-gray-100 py-6 border-t border-gray-200 text-gray-500 text-sm text-center">
+        <p>© 2025 AI Agent Workshop. All rights reserved.</p>
+        <p class="mt-1">由 Kenneth Tu 開發</p>
+      </footer>
+    </div>
+  </body>
+</html>
