@@ -1,11 +1,13 @@
 # Lab 環境 建立
 
 ## 課程中使用的n8n workflow
+
 - [demo1](workflow/demo.json)
 - [demo2](workflow/demo.json)
 - [mcp-service](workflow/mcp-service.json)
 
-## podman 建立環境
+## podman 建立 Lab 環境
+
 使用以下指令建立 個lab環境
 
 ``` sh
@@ -46,12 +48,12 @@ server {
         gzip                        off;
         chunked_transfer_encoding   off;
 
-	proxy_set_header Host $host;
+ proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
 
-    	proxy_pass http://127.0.0.1:10007;
+     proxy_pass http://127.0.0.1:10007;
     }
 
     listen 443 ssl; # managed by Certbot
@@ -70,3 +72,6 @@ server {
 }
 ```
 
+## podman 建立長期運行環境
+>
+> 相關資訊與腳本參閱 **infra/podman** 目錄

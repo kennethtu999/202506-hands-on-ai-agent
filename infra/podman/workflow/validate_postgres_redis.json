@@ -1,0 +1,214 @@
+{
+    "nodes": [
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          -240,
+          -80
+        ],
+        "id": "c7452f42-5dbc-49a7-a0d1-6846117c8c9c",
+        "name": "When clicking ‘Execute workflow’"
+      },
+      {
+        "parameters": {
+          "operation": "set",
+          "key": "param",
+          "value": "={{ $json.result }}",
+          "keyType": "string",
+          "expire": true
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          -20,
+          160
+        ],
+        "id": "488fadd1-fa7f-4db8-8929-8429e7df3f1c",
+        "name": "Redis-add",
+        "credentials": {
+          "redis": {
+            "id": "J5eZ1kQniilvXeZE",
+            "name": "Redis account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "keys",
+          "keyPattern": "*",
+          "getValues": false
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          160,
+          160
+        ],
+        "id": "faee7867-f416-4d28-a5b9-337e5f243a16",
+        "name": "Redis-select",
+        "credentials": {
+          "redis": {
+            "id": "J5eZ1kQniilvXeZE",
+            "name": "Redis account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "options": {
+            "reset": false
+          }
+        },
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          340,
+          160
+        ],
+        "id": "a8f48c9d-3fe1-428a-aa84-cab6206ba217",
+        "name": "Loop Over Items"
+      },
+      {
+        "parameters": {
+          "jsCode": "const data = JSON.stringify($input.first().json)\n\nreturn [\n  {\n    json: {\n      result: data\n    }\n  }\n];"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          180,
+          -80
+        ],
+        "id": "5f44ddf6-4954-43ec-8c5e-cc531dfd65ff",
+        "name": "params2json"
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "select * from data.global_vars",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          -20,
+          -80
+        ],
+        "id": "6cbe9bfd-c68f-4ab1-8f26-ee7ad3314dda",
+        "name": "Postgres-load-params",
+        "credentials": {
+          "postgres": {
+            "id": "TLpKSkNenTyQcRHv",
+            "name": "Postgres account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "key": "={{ $json.keys[0] }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          560,
+          180
+        ],
+        "id": "008656a9-038f-4d5d-b734-d9c6cfa1bf99",
+        "name": "Redis-select-data",
+        "credentials": {
+          "redis": {
+            "id": "J5eZ1kQniilvXeZE",
+            "name": "Redis account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "When clicking ‘Execute workflow’": {
+        "main": [
+          [
+            {
+              "node": "Postgres-load-params",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis-add": {
+        "main": [
+          [
+            {
+              "node": "Redis-select",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis-select": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Loop Over Items": {
+        "main": [
+          [],
+          [
+            {
+              "node": "Redis-select-data",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "params2json": {
+        "main": [
+          [
+            {
+              "node": "Redis-add",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Postgres-load-params": {
+        "main": [
+          [
+            {
+              "node": "params2json",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis-select-data": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "pinData": {},
+    "meta": {
+      "templateCredsSetupCompleted": true,
+      "instanceId": "5d2e33aa04308492df794d445fe38bb555f483ec69e1b6f0418591ab705fca60"
+    }
+  }

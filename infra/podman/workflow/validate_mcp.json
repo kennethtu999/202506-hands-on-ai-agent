@@ -1,0 +1,174 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -300,
+        -100
+      ],
+      "id": "f5148071-b2aa-418d-ab0a-92f84a95124e",
+      "name": "When chat message received",
+      "webhookId": "3743310f-eb27-4508-82df-a8c03700d3a5"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful assistant, use tool result, 好好的以繁中歡迎對話的人",
+          "maxIterations": 2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        -100
+      ],
+      "id": "66b86ecc-5463-42f6-a367-8d2946bad19f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-05-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        120
+      ],
+      "id": "5ab63758-c518-4db9-896d-95562a40ce08",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "0KESMCj9Yw6cGjOU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "headerAuth",
+        "path": "default"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -100
+      ],
+      "id": "423ecc54-b507-4182-b6e7-d7cff42eee43",
+      "name": "MCP Server Trigger",
+      "webhookId": "38c00db8-8645-49ea-b546-c49dc4efd19a",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "LGOETMdM6G3Oyof3",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sseEndpoint": "https://n8nlab.kttu.cc/mcp/default/sse",
+        "authentication": "headerAuth"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        80,
+        120
+      ],
+      "id": "55ddd0ea-ca07-48ee-925e-3591dde8b46e",
+      "name": "MCP Client",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "LGOETMdM6G3Oyof3",
+          "name": "INTERNAL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 測試方式\n1. Chat \"Welcome Daniel\"\n1. Chat \"Welcome Kenneth\"\n1. Chat \"Welcome Irene\"",
+        "width": 320
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -380,
+        -300
+      ],
+      "id": "8cb5bc97-327f-41ed-aa77-21eb19045e95",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "description": "who is",
+        "jsCode": "//console.log($input.first())\n//const query = $input.first();\n\nif (query.match(/kenneth/i)) {\n  return `${query} 是一位架構師`\n} else if (query.match(/daniel/i)) {\n  return `${query} 是一位偉大的架構師，上知天文，下知地理`\n} else {\n  return `${query} 是一位稱職的顧問`\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.2,
+      "position": [
+        700,
+        120
+      ],
+      "id": "3bf6eef6-3d38-42c1-8a53-5d858f2f5a29",
+      "name": "welcome"
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "welcome": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5d2e33aa04308492df794d445fe38bb555f483ec69e1b6f0418591ab705fca60"
+  }
+}
